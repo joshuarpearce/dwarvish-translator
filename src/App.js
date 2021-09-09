@@ -1,4 +1,3 @@
-import fp from 'lodash/fp';
 import React, { useState } from 'react';
 
 import translator from './languageProcessor';
