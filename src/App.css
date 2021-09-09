@@ -1,38 +1,53 @@
+@font-face {
+    font-family: Erebor;
+    src: url(fonts/Erebor.ttf);
+}
+
+@font-face {
+    font-family: Erebor1;
+    src: url(fonts/Erebor1.ttf);
+}
+
+@font-face {
+    font-family: Erebor2;
+    src: url(fonts/Erebor2.ttf);
+}
+
+@font-face {
+    font-family: Erebcap;
+    src: url(fonts/Erebcap.ttf);
+}
+
+@font-face {
+    font-family: Erebcap1;
+    src: url(fonts/Erebcap1.ttf);
+}
+
+@font-face {
+    font-family: Erebcap2;
+    src: url(fonts/Erebcap2.ttf);
+}
+
 .App {
-  text-align: center;
+    text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.translationHolder {
+    display: flex;
+    flex-direction: row;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.textareaHolder {
+    flex-grow: 1;
+    flex-shrink: 1;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.english {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30pt;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.dwarvish {
+    font-family: 'Erebor';
+    font-size: 20pt;
 }
