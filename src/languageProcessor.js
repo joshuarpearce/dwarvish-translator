@@ -12,7 +12,7 @@ const processText = (value = '', source, destination, ignoredCharacters) => {
             continue;
         }
 
-        for (let j = 3; j >= 0; j--) {
+        for (let j = 5; j >= 0; j--) {
             if (j === 0) {
                 adjustedValue.replace(valueArray[i], '');
                 i += 1;

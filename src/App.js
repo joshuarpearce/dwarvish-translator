@@ -1,6 +1,8 @@
 import fp from 'lodash/fp';
 import React, { useState } from 'react';
 
+import translator from './languageProcessor';
+
 import './App.css';
 
 const ignoredCharacters = [' '];
@@ -13,44 +15,17 @@ const App = () => {
     const [dwarvish, setDwarvish] = useState('');
 
     const updateEnglish = (value = '') => {
-        let adjustedValue = value;
-
-        const valueArray = value.split('');
-
-        let dwarvishTranslation = '';
-
-        for (let i = 0; i < valueArray.length;) {
-            if (ignoredCharacters.includes(valueArray[i])) {
-                dwarvishTranslation += adjustedValue[i];
-                i++;
-                continue;
-            }
-
-            for (let j = 3; j >= 0; j--) {
-                if (j === 0) {
-                    adjustedValue.replace(valueArray[i], '');
-                    i += 1;
-                    break;
-                }
-
-                if (
-                    valueArray.length - i > (j - 1)
-                    && englishCharacters.includes(valueArray.slice(i, i + j).join(''))
-                ) {
-                    dwarvishTranslation += dwarvishCharacters[englishCharacters.indexOf(valueArray.slice(i, i + j).join(''))];
-                    i += j;
-                    break;
-                }
-            }
-        }
+        const [adjustedValue, translatedValue] = translator(value, englishCharacters, dwarvishCharacters, ignoredCharacters);
 
         setEnglish(adjustedValue);
-        setDwarvish(dwarvishTranslation);
+        setDwarvish(translatedValue);
     };
 
     const updateDwarvish = (value) => {
-        setDwarvish(value);
-        setEnglish(dwarvishCharacters.reduce((acc, cur, i) => acc.replace(cur, englishCharacters[i]), value));
+        const [adjustedValue, translatedValue] = translator(value, dwarvishCharacters, englishCharacters, ignoredCharacters);
+
+        setDwarvish(adjustedValue);
+        setEnglish(translatedValue);
     };
 
     return (
